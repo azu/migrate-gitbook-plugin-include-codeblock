@@ -1,1 +1,1 @@
-[include:1-10,title="code.js"](path/to/code.js)
+[include:1-10,title:"code.js"](path/to/code.js)

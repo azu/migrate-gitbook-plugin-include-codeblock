@@ -1,0 +1,1 @@
+[import, lang-typescript](path/to/code.ts)

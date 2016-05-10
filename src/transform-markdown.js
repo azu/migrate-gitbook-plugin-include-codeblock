@@ -19,6 +19,9 @@ export function replaceLabel(label, url) {
     if (!labelValue) {
         return label;
     }
+    if (labelValue.indexOf("title:") !== -1) {
+        return label;
+    }
     if (isURL(url)) {
         return label;
     }
@@ -27,15 +30,24 @@ export function replaceLabel(label, url) {
     // [import](path/to/code.js)
     const iRegExp = /^(import|include)$/;
     if (iRegExp.test(labelValue)) {
-        label.value = `${labelValue}, title="${basename}"`;
+        label.value = `${labelValue}, title:"${basename}"`;
         return label
     }
     // Pattern 1
     // [import, code.js](path/to/code.js)
     if (labelValue.indexOf(basename) !== -1) {
-        label.value = labelValue.replace(basename, `title="${basename}"`);
+        label.value = labelValue.replace(basename, `title:"${basename}"`);
         return label;
     }
+    // Pattern 2
+    // [import,](path/to/code.js)
+    if (/,$/.test(labelValue)) {
+        label.value = `${labelValue} title:"${basename}"`;
+        return label;
+    }
+    // Pattern other
+    // [import, xxx](path/to/code.js)
+    label.value = `${labelValue}, title:"${basename}"`;
     return label;
 }
 export function transform(content) {

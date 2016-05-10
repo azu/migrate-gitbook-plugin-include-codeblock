@@ -1,1 +1,1 @@
-[import, title="code.js"](path/to/code.js)
+[import, title:"code.js"](path/to/code.js)
