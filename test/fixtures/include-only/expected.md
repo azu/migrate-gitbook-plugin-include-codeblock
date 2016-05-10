@@ -1,0 +1,1 @@
+[include, title="code.js"](path/to/code.js)

@@ -1,0 +1,1 @@
+[import, title="code.js"](path/to/code.js)

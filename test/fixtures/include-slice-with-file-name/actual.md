@@ -1,0 +1,1 @@
+[include:1-10,code.js](path/to/code.js)
