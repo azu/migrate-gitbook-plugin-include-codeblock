@@ -1,0 +1,1 @@
+[import](../to/code.js)
