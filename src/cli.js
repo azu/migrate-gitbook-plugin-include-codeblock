@@ -5,7 +5,7 @@ const fs = require("fs");
 import {transform} from "./transform-markdown";
 export function execute(argv) {
     const pattern = process.argv[2];
-    if(!pattern){
+    if (!pattern) {
         console.log(`Usage: $ migrate-gitbook-plugin-include-codeblock "src/**/*.md"`);
         throw new Error("Should pass argument.")
     }
@@ -20,6 +20,7 @@ export function execute(argv) {
         const replacedContent = transform(content);
         if (content !== replacedContent && replacedContent) {
             fs.writeFileSync(filePath, replacedContent, "utf-8");
+            console.log(`Written ${filePath}`);
         }
     })
 }
