@@ -12,7 +12,7 @@
     "url": "https://github.com/azu/migrate-gitbook-plugin-include-codeblock/issues"
   },
   "files": [
-    "bin/"
+    "bin/",
     "src/",
     "lib/"
   ],
