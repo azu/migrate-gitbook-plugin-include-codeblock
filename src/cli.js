@@ -4,13 +4,13 @@ const glob = require("glob");
 const fs = require("fs");
 import {transform} from "./transform-markdown";
 export function execute(argv) {
-    const glob = process.argv[2];
-    if(!glob){
+    const pattern = process.argv[2];
+    if(!pattern){
         console.log(`Usage: $ migrate-gitbook-plugin-include-codeblock "src/**/*.md"`);
         throw new Error("Should pass argument.")
     }
 
-    const filePaths = glob.sync(glob);
+    const filePaths = glob.sync(pattern);
     if (filePaths.length === 0) {
         throw new Error(`${argv} is not match any files`);
     }
