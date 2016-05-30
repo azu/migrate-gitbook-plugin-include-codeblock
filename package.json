@@ -12,12 +12,16 @@
     "url": "https://github.com/azu/migrate-gitbook-plugin-include-codeblock/issues"
   },
   "files": [
+    "bin/"
     "src/",
     "lib/"
   ],
   "version": "1.0.0",
   "description": "migration tool that convert to v2 from v1.",
   "main": "lib/migrate-gitbook-plugin-include-codeblock.js",
+  "bin": {
+    "migrate-gitbook-plugin-include-codeblock": "bin/cmd.js"
+  },
   "directories": {
     "test": "test"
   },

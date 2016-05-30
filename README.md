@@ -10,7 +10,105 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
-- [ ] Write usage instructions
+You can specify target files by glob([node-glob](https://github.com/isaacs/node-glob "node-glob"))
+
+    migrate-gitbook-plugin-include-codeblock "src/**/*.md"
+    # all markdown file under the src directory
+
+:warning: Please backup before migration :warning:
+
+### Sample of result
+
+
+```
+
+[import, lang-typescript](path/to/code.ts)
+
+=>
+
+[import, lang-typescript, title:"code.ts"](path/to/code.ts)
+
+```
+
+```
+
+[import](path/to/code.js)
+
+=>
+
+[import, title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[import,](path/to/code.js)
+
+=>
+
+[import, title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[import, code.js](path/to/code.js)
+
+=>
+
+[import, title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[import, title](path/to/code.js)
+
+=>
+
+[import, title, title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[include](path/to/code.js)
+
+=>
+
+[include, title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[include:1-10](path/to/code.js)
+
+=>
+
+[include:1-10, title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[include:1-10,code.js](path/to/code.js)
+
+=>
+
+[include:1-10,title:"code.js"](path/to/code.js)
+
+```
+
+```
+
+[include](http://example.com/to/code.js)
+
+=>
+
+[include](http://example.com/to/code.js)
+
+```
 
 ## Changelog
 
